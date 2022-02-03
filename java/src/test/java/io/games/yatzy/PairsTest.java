@@ -1,6 +1,7 @@
 package io.games.yatzy;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -25,6 +26,13 @@ class PairsTest {
     assertEquals(expectedScore, Yatzy.score_pair(dice1, dice2, dice3, dice4, dice5));
   }
 
+  @Test
+  @DisplayName(
+      "The player scores 0 when there is no matching dice and he chooses to place dice on [pairs]")
+  public void should_score_0_When_no_dice_that_read_6_and_dice_placed_on_pairs() {
+    assertEquals(0, Yatzy.score_pair(1, 2, 3, 4, 5));
+  }
+
   @ParameterizedTest
   @CsvSource({"16, 3, 3, 5, 4, 5", "16, 3, 3, 5, 4, 5"})
   @DisplayName(
@@ -33,5 +41,12 @@ class PairsTest {
       should_score_sum_the_two_highest_matching_dice_When_there_are_two_pairs_and_dice_placed_on_two_pairs(
           int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
     assertEquals(expectedScore, Yatzy.two_pair(dice1, dice2, dice3, dice4, dice5));
+  }
+
+  @Test
+  @DisplayName(
+      "The player scores 0 when there is not two pairs and he chooses to place dice on [two pairs]")
+  public void should_score_0_When_no_dice_that_read_6_and_dice_placed_on_two_pairs() {
+    assertEquals(0, Yatzy.two_pair(1, 2, 2, 4, 5));
   }
 }

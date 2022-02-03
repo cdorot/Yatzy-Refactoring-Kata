@@ -1,6 +1,7 @@
 package io.games.yatzy;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -25,6 +26,13 @@ class OnesTwosThreesFoursFivesTest {
     assertEquals(expectedScore, Yatzy.ones(dice1, dice2, dice3, dice4, dice5));
   }
 
+  @Test
+  @DisplayName(
+      "The player scores 0 when there is no dice that reads 1 and he chooses to place dice on [ones]")
+  public void should_score_0_When_no_dice_that_read_1_and_dice_placed_on_ones() {
+    assertEquals(0, Yatzy.ones(2, 3, 4, 5, 6));
+  }
+
   @ParameterizedTest
   @CsvSource({
     " 0, 1, 3, 4, 5, 5",
@@ -39,6 +47,13 @@ class OnesTwosThreesFoursFivesTest {
   public void should_score_sum_of_all_dice_that_reads_2_When_dice_placed_on_twos(
       int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
     assertEquals(expectedScore, Yatzy.twos(dice1, dice2, dice3, dice4, dice5));
+  }
+
+  @Test
+  @DisplayName(
+      "The player scores 0 when there is no dice that reads 2 and he chooses to place dice on [twos]")
+  public void should_score_0_When_no_dice_that_read_2_and_dice_placed_on_twos() {
+    assertEquals(0, Yatzy.twos(1, 3, 4, 5, 6));
   }
 
   @ParameterizedTest
@@ -57,6 +72,13 @@ class OnesTwosThreesFoursFivesTest {
     assertEquals(expectedScore, Yatzy.threes(dice1, dice2, dice3, dice4, dice5));
   }
 
+  @Test
+  @DisplayName(
+      "The player scores 0 when there is no dice that reads 3 and he chooses to place dice on [threes]")
+  public void should_score_0_When_no_dice_that_read_3_and_dice_placed_on_threes() {
+    assertEquals(0, Yatzy.threes(1, 2, 4, 5, 6));
+  }
+
   @ParameterizedTest
   @CsvSource({
     " 0, 1, 2, 3, 5, 5",
@@ -71,6 +93,13 @@ class OnesTwosThreesFoursFivesTest {
   public void should_score_sum_of_all_dice_that_reads_4_When_dice_placed_on_fours(
       int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
     assertEquals(expectedScore, new Yatzy(dice1, dice2, dice3, dice4, dice5).fours());
+  }
+
+  @Test
+  @DisplayName(
+      "The player scores 0 when there is no dice that reads 4 and he chooses to place dice on [fours]")
+  public void should_score_0_When_no_dice_that_read_4_and_dice_placed_on_fours() {
+    assertEquals(0, new Yatzy(1, 2, 3, 5, 6).fours());
   }
 
   @ParameterizedTest
@@ -89,6 +118,13 @@ class OnesTwosThreesFoursFivesTest {
     assertEquals(expectedScore, new Yatzy(dice1, dice2, dice3, dice4, dice5).fives());
   }
 
+  @Test
+  @DisplayName(
+      "The player scores 0 when there is no dice that reads 5 and he chooses to place dice on [fives]")
+  public void should_score_0_When_no_dice_that_read_5_and_dice_placed_on_fives() {
+    assertEquals(0, new Yatzy(1, 2, 3, 4, 6).fives());
+  }
+
   @ParameterizedTest
   @CsvSource({
     " 0, 1, 2, 3, 4, 4",
@@ -103,5 +139,12 @@ class OnesTwosThreesFoursFivesTest {
   public void should_score_sum_of_all_dice_that_reads_6_When_dice_placed_on_sixes(
       int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
     assertEquals(expectedScore, new Yatzy(dice1, dice2, dice3, dice4, dice5).sixes());
+  }
+
+  @Test
+  @DisplayName(
+      "The player scores 0 when there is no dice that reads 6 and he chooses to place dice on [sixes]")
+  public void should_score_0_When_no_dice_that_read_6_and_dice_placed_on_sixes() {
+    assertEquals(0, new Yatzy(1, 2, 3, 4, 5).sixes());
   }
 }
