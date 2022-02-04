@@ -1,5 +1,6 @@
 package io.games.yatzy;
 
+import java.util.OptionalInt;
 import java.util.stream.IntStream;
 
 public class Yatzy {
@@ -48,20 +49,7 @@ public class Yatzy {
   }
 
   public int score_pair() {
-    int[] counts = new int[6];
-    counts[dice[0] - 1]++;
-    counts[dice[1] - 1]++;
-    counts[dice[2] - 1]++;
-    counts[dice[3] - 1]++;
-    counts[dice[4] - 1]++;
-
-    for (int at = 0; at != 6; at++) {
-      if (counts[6 - at - 1] >= 2) {
-        return (6 - at) * 2;
-      }
-    }
-
-    return 0;
+    return highestMatchingDice().orElse(0) * 2;
   }
 
   public int two_pair() {
@@ -196,6 +184,14 @@ public class Yatzy {
 
   private int countDieThatReadNumber(int number) {
     return (int) IntStream.of(dice).filter(d -> d == number).count();
+  }
+
+  private boolean hasMultipleOccurrence(int value) {
+    return countDieThatReadNumber(value) > 1;
+  }
+
+  private OptionalInt highestMatchingDice() {
+    return IntStream.rangeClosed(1, 6).filter(this::hasMultipleOccurrence).max();
   }
 
   private int sumOfAllDice() {
