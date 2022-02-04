@@ -16,7 +16,7 @@ public class Yatzy {
   }
 
   public int chance() {
-    return dice[0] + dice[1] + dice[2] + dice[3] + dice[4];
+    return sumOfAllDice();
   }
 
   public int ones() {
@@ -201,5 +201,9 @@ public class Yatzy {
 
   private int countDieThatReadNumber(int number) {
     return (int) IntStream.of(dice).filter(d -> d == number).count();
+  }
+
+  private int sumOfAllDice() {
+    return IntStream.of(dice).sum();
   }
 }
