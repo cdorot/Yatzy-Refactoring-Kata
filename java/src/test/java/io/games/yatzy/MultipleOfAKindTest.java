@@ -36,7 +36,7 @@ class MultipleOfAKindTest extends AbstractRuleTest {
         int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
       assertEquals(
           expectedScore,
-          new Yatzy(dice1, dice2, dice3, dice4, dice5).three_of_a_kind(),
+          new YatzyGame(dice1, dice2, dice3, dice4, dice5).threeOfAKind(),
           assertionMessage("three of a kind", expectedScore, dice1, dice2, dice3, dice4, dice5));
     }
   }
@@ -66,7 +66,7 @@ class MultipleOfAKindTest extends AbstractRuleTest {
         int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
       assertEquals(
           expectedScore,
-          new Yatzy(dice1, dice2, dice3, dice4, dice5).four_of_a_kind(),
+          new YatzyGame(dice1, dice2, dice3, dice4, dice5).fourOfAKind(),
           assertionMessage("four of a kind", expectedScore, dice1, dice2, dice3, dice4, dice5));
     }
   }

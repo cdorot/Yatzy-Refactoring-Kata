@@ -15,7 +15,13 @@ class StraightTest extends AbstractRuleTest {
   class SmallStraightTest {
 
     @ParameterizedTest
-    @CsvSource({"15, 1, 2, 3, 4, 5", "15, 2, 3, 4, 5, 1"})
+    @CsvSource({
+      "15, 1, 2, 3, 4, 5",
+      "15, 2, 3, 4, 5, 1",
+      "15, 1, 4, 2, 3, 1",
+      "15, 2, 4, 3, 3, 5",
+      "15, 3, 4, 6, 5, 6"
+    })
     @DisplayName(
         "The player scores 15 when he chooses to place dice on [small straight] and there is a straight combination with four of the five dice")
     public void
@@ -35,7 +41,7 @@ class StraightTest extends AbstractRuleTest {
         int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
       assertEquals(
           expectedScore,
-          new Yatzy(dice1, dice2, dice3, dice4, dice5).smallStraight(),
+          new YatzyGame(dice1, dice2, dice3, dice4, dice5).smallStraight(),
           assertionMessage("small straight", expectedScore, dice1, dice2, dice3, dice4, dice5));
     }
   }
@@ -64,7 +70,7 @@ class StraightTest extends AbstractRuleTest {
         int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
       assertEquals(
           expectedScore,
-          new Yatzy(dice1, dice2, dice3, dice4, dice5).largeStraight(),
+          new YatzyGame(dice1, dice2, dice3, dice4, dice5).largeStraight(),
           assertionMessage("large straight", expectedScore, dice1, dice2, dice3, dice4, dice5));
     }
   }

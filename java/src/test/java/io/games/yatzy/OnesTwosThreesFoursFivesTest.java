@@ -41,7 +41,7 @@ class OnesTwosThreesFoursFivesTest extends AbstractRuleTest {
         int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
       assertEquals(
           expectedScore,
-          new Yatzy(dice1, dice2, dice3, dice4, dice5).ones(),
+          new YatzyGame(dice1, dice2, dice3, dice4, dice5).ones(),
           assertionMessage("ones", expectedScore, dice1, dice2, dice3, dice4, dice5));
     }
   }
@@ -76,7 +76,7 @@ class OnesTwosThreesFoursFivesTest extends AbstractRuleTest {
         int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
       assertEquals(
           expectedScore,
-          new Yatzy(dice1, dice2, dice3, dice4, dice5).twos(),
+          new YatzyGame(dice1, dice2, dice3, dice4, dice5).twos(),
           assertionMessage("twos", expectedScore, dice1, dice2, dice3, dice4, dice5));
     }
   }
@@ -111,7 +111,7 @@ class OnesTwosThreesFoursFivesTest extends AbstractRuleTest {
         int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
       assertEquals(
           expectedScore,
-          new Yatzy(dice1, dice2, dice3, dice4, dice5).threes(),
+          new YatzyGame(dice1, dice2, dice3, dice4, dice5).threes(),
           assertionMessage("threes", expectedScore, dice1, dice2, dice3, dice4, dice5));
     }
   }
@@ -146,7 +146,7 @@ class OnesTwosThreesFoursFivesTest extends AbstractRuleTest {
         int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
       assertEquals(
           expectedScore,
-          new Yatzy(dice1, dice2, dice3, dice4, dice5).fours(),
+          new YatzyGame(dice1, dice2, dice3, dice4, dice5).fours(),
           assertionMessage("fours", expectedScore, dice1, dice2, dice3, dice4, dice5));
     }
   }
@@ -181,7 +181,7 @@ class OnesTwosThreesFoursFivesTest extends AbstractRuleTest {
         int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
       assertEquals(
           expectedScore,
-          new Yatzy(dice1, dice2, dice3, dice4, dice5).fives(),
+          new YatzyGame(dice1, dice2, dice3, dice4, dice5).fives(),
           assertionMessage("fives", expectedScore, dice1, dice2, dice3, dice4, dice5));
     }
   }
@@ -216,7 +216,7 @@ class OnesTwosThreesFoursFivesTest extends AbstractRuleTest {
         int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
       assertEquals(
           expectedScore,
-          new Yatzy(dice1, dice2, dice3, dice4, dice5).sixes(),
+          new YatzyGame(dice1, dice2, dice3, dice4, dice5).sixes(),
           assertionMessage("sixes", expectedScore, dice1, dice2, dice3, dice4, dice5));
     }
   }

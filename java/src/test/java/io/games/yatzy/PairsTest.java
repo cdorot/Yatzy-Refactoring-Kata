@@ -41,7 +41,7 @@ class PairsTest extends AbstractRuleTest {
         int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
       assertEquals(
           expectedScore,
-          new Yatzy(dice1, dice2, dice3, dice4, dice5).score_pair(),
+          new YatzyGame(dice1, dice2, dice3, dice4, dice5).pairs(),
           assertionMessage("pairs", expectedScore, dice1, dice2, dice3, dice4, dice5));
     }
   }
@@ -70,7 +70,7 @@ class PairsTest extends AbstractRuleTest {
         int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
       assertEquals(
           expectedScore,
-          new Yatzy(dice1, dice2, dice3, dice4, dice5).two_pair(),
+          new YatzyGame(dice1, dice2, dice3, dice4, dice5).twoPairs(),
           assertionMessage("two pairs", expectedScore, dice1, dice2, dice3, dice4, dice5));
     }
   }
