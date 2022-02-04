@@ -23,14 +23,14 @@ class PairsTest {
       "The player scores the sum of the two highest matching dice when he chooses to place dice on [pairs]")
   public void should_score_sum_the_two_highest_matching_dice_When_dice_placed_on_pairs(
       int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
-    assertEquals(expectedScore, Yatzy.score_pair(dice1, dice2, dice3, dice4, dice5));
+    assertEquals(expectedScore, new Yatzy(dice1, dice2, dice3, dice4, dice5).score_pair());
   }
 
   @Test
   @DisplayName(
       "The player scores 0 when there is no matching dice and he chooses to place dice on [pairs]")
   public void should_score_0_When_no_dice_that_read_6_and_dice_placed_on_pairs() {
-    assertEquals(0, Yatzy.score_pair(1, 2, 3, 4, 5));
+    assertEquals(0, new Yatzy(1, 2, 3, 4, 5).score_pair());
   }
 
   @ParameterizedTest
@@ -40,13 +40,13 @@ class PairsTest {
   public void
       should_score_sum_the_two_highest_matching_dice_When_there_are_two_pairs_and_dice_placed_on_two_pairs(
           int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
-    assertEquals(expectedScore, Yatzy.two_pair(dice1, dice2, dice3, dice4, dice5));
+    assertEquals(expectedScore, new Yatzy(dice1, dice2, dice3, dice4, dice5).two_pair());
   }
 
   @Test
   @DisplayName(
       "The player scores 0 when there is not two pairs and he chooses to place dice on [two pairs]")
   public void should_score_0_When_no_dice_that_read_6_and_dice_placed_on_two_pairs() {
-    assertEquals(0, Yatzy.two_pair(1, 2, 2, 4, 5));
+    assertEquals(0, new Yatzy(1, 2, 2, 4, 5).two_pair());
   }
 }

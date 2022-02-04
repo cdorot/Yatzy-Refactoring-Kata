@@ -17,7 +17,7 @@ class MultipleOfAKindTest {
   public void
       should_score_sum_of_dice_with_the_same_number_When_three_dice_with_same_number_and_dice_placed_on_three_of_a_kind(
           int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
-    assertEquals(expectedScore, Yatzy.three_of_a_kind(dice1, dice2, dice3, dice4, dice5));
+    assertEquals(expectedScore, new Yatzy(dice1, dice2, dice3, dice4, dice5).three_of_a_kind());
   }
 
   @Test
@@ -25,7 +25,7 @@ class MultipleOfAKindTest {
       "If there are not [three] dice with the same number, the player scores 0 when he chooses to place dice on [three of a kind]")
   public void
       should_score_0_When_there_is_not_three_dice_with_same_number_and_dice_placed_on_three_of_a_kind() {
-    assertEquals(0, Yatzy.three_of_a_kind(2, 2, 4, 4, 5));
+    assertEquals(0, new Yatzy(2, 2, 4, 4, 5).three_of_a_kind());
   }
 
   @ParameterizedTest
@@ -35,7 +35,7 @@ class MultipleOfAKindTest {
   public void
       should_score_sum_of_dice_with_the_same_number_When_four_dice_with_same_number_and_dice_placed_on_four_of_a_kind(
           int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
-    assertEquals(expectedScore, Yatzy.four_of_a_kind(dice1, dice2, dice3, dice4, dice5));
+    assertEquals(expectedScore, new Yatzy(dice1, dice2, dice3, dice4, dice5).four_of_a_kind());
   }
 
   @Test
@@ -43,6 +43,6 @@ class MultipleOfAKindTest {
       "If there are not [four] dice with the same number, the player scores 0 when he chooses to place dice on [four of a kind]")
   public void
       should_score_0_When_there_is_not_four_dice_with_same_number_and_dice_placed_on_four_of_a_kind() {
-    assertEquals(0, Yatzy.four_of_a_kind(2, 2, 4, 4, 4));
+    assertEquals(0, new Yatzy(2, 2, 4, 4, 4).four_of_a_kind());
   }
 }

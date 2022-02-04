@@ -23,14 +23,14 @@ class OnesTwosThreesFoursFivesTest {
       "The player scores the sum of the dice that reads [one] when he chooses to place dice on [ones]")
   public void should_score_sum_of_all_dice_that_reads_1_When_dice_placed_on_ones(
       int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
-    assertEquals(expectedScore, Yatzy.ones(dice1, dice2, dice3, dice4, dice5));
+    assertEquals(expectedScore, new Yatzy(dice1, dice2, dice3, dice4, dice5).ones());
   }
 
   @Test
   @DisplayName(
       "The player scores 0 when there is no dice that reads 1 and he chooses to place dice on [ones]")
   public void should_score_0_When_no_dice_that_read_1_and_dice_placed_on_ones() {
-    assertEquals(0, Yatzy.ones(2, 3, 4, 5, 6));
+    assertEquals(0, new Yatzy(2, 3, 4, 5, 6).ones());
   }
 
   @ParameterizedTest
@@ -46,14 +46,14 @@ class OnesTwosThreesFoursFivesTest {
       "The player scores the sum of the dice that reads [two] when he chooses to place dice on [twos]")
   public void should_score_sum_of_all_dice_that_reads_2_When_dice_placed_on_twos(
       int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
-    assertEquals(expectedScore, Yatzy.twos(dice1, dice2, dice3, dice4, dice5));
+    assertEquals(expectedScore, new Yatzy(dice1, dice2, dice3, dice4, dice5).twos());
   }
 
   @Test
   @DisplayName(
       "The player scores 0 when there is no dice that reads 2 and he chooses to place dice on [twos]")
   public void should_score_0_When_no_dice_that_read_2_and_dice_placed_on_twos() {
-    assertEquals(0, Yatzy.twos(1, 3, 4, 5, 6));
+    assertEquals(0, new Yatzy(1, 3, 4, 5, 6).twos());
   }
 
   @ParameterizedTest
@@ -69,14 +69,14 @@ class OnesTwosThreesFoursFivesTest {
       "The player scores the sum of the dice that reads [three] when he chooses to place dice on [threes]")
   public void should_score_sum_of_all_dice_that_reads_3_When_dice_placed_on_threes(
       int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
-    assertEquals(expectedScore, Yatzy.threes(dice1, dice2, dice3, dice4, dice5));
+    assertEquals(expectedScore, new Yatzy(dice1, dice2, dice3, dice4, dice5).threes());
   }
 
   @Test
   @DisplayName(
       "The player scores 0 when there is no dice that reads 3 and he chooses to place dice on [threes]")
   public void should_score_0_When_no_dice_that_read_3_and_dice_placed_on_threes() {
-    assertEquals(0, Yatzy.threes(1, 2, 4, 5, 6));
+    assertEquals(0, new Yatzy(1, 2, 4, 5, 6).threes());
   }
 
   @ParameterizedTest

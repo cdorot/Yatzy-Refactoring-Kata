@@ -14,6 +14,6 @@ class ChanceTest {
   @DisplayName("The player scores the sum of all dice when he chooses to place dice on [chance]")
   public void should_score_sum_of_all_dice_When_dice_placed_on_chance(
       int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
-    assertEquals(expectedScore, Yatzy.chance(dice1, dice2, dice3, dice4, dice5));
+    assertEquals(expectedScore, new Yatzy(dice1, dice2, dice3, dice4, dice5).chance());
   }
 }

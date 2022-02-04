@@ -15,7 +15,7 @@ class YatziTest {
       "The player scores 0 when he chooses to place dice on [yatzi] and at least one dice has a different number")
   public void
       should_score_0_When_dice_placed_on_yatzi_and_at_least_one_dice_has_a_different_number() {
-    assertEquals(0, Yatzy.yatzy(6, 6, 6, 6, 3));
+    assertEquals(0, new Yatzy(6, 6, 6, 6, 3).yatzy());
   }
 
   @ParameterizedTest
@@ -23,6 +23,6 @@ class YatziTest {
   @DisplayName(
       "The player scores 50 when he chooses to place dice on [yatzi] and all dice have same number")
   public void should_score_50_When_dice_placed_on_yatzi_and_all_dice_have_same_numbers(int dice) {
-    assertEquals(50, Yatzy.yatzy(dice, dice, dice, dice, dice));
+    assertEquals(50, new Yatzy(dice, dice, dice, dice, dice).yatzy());
   }
 }

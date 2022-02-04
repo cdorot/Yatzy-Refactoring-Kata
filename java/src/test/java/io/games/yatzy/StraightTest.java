@@ -17,14 +17,14 @@ class StraightTest {
   public void
       should_score_15_When_there_is_sequential_with_4_dice_and_dice_placed_on_small_straight(
           int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
-    assertEquals(expectedScore, Yatzy.smallStraight(dice1, dice2, dice3, dice4, dice5));
+    assertEquals(expectedScore, new Yatzy(dice1, dice2, dice3, dice4, dice5).smallStraight());
   }
 
   @Test
   @DisplayName(
       "The player scores 0 when he chooses to place dice on [small straight] there is no small straight combination")
   public void should_score_0_When_there_isnt_sequential_dice_and_dice_placed_on_small_straight() {
-    assertEquals(0, Yatzy.smallStraight(1, 2, 2, 4, 5));
+    assertEquals(0, new Yatzy(1, 2, 2, 4, 5).smallStraight());
   }
 
   @ParameterizedTest
@@ -34,13 +34,13 @@ class StraightTest {
   public void
       should_score_20_When_there_is_sequential_with_all_dice_and_dice_placed_on_large_straight(
           int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
-    assertEquals(expectedScore, Yatzy.largeStraight(dice1, dice2, dice3, dice4, dice5));
+    assertEquals(expectedScore, new Yatzy(dice1, dice2, dice3, dice4, dice5).largeStraight());
   }
 
   @Test
   @DisplayName(
       "The player scores 0 when he chooses to place dice on [large straight] and there is no large straight combination")
   public void should_score_0_When_there_isnt_sequential_dice_and_dice_placed_onlarge_straight() {
-    assertEquals(0, Yatzy.largeStraight(1, 2, 2, 4, 5));
+    assertEquals(0, new Yatzy(1, 2, 2, 4, 5).largeStraight());
   }
 }
