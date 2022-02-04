@@ -21,27 +21,27 @@ public class Yatzy {
   }
 
   public int ones() {
-    return countDieThatReadNumber(dice, 1);
+    return countDiceThatReadNumber(dice, 1);
   }
 
   public int twos() {
-    return 2 * countDieThatReadNumber(dice, 2);
+    return 2 * countDiceThatReadNumber(dice, 2);
   }
 
   public int threes() {
-    return 3 * countDieThatReadNumber(dice, 3);
+    return 3 * countDiceThatReadNumber(dice, 3);
   }
 
   public int fours() {
-    return 4 * countDieThatReadNumber(dice, 4);
+    return 4 * countDiceThatReadNumber(dice, 4);
   }
 
   public int fives() {
-    return 5 * countDieThatReadNumber(dice, 5);
+    return 5 * countDiceThatReadNumber(dice, 5);
   }
 
   public int sixes() {
-    return 6 * countDieThatReadNumber(dice, 6);
+    return 6 * countDiceThatReadNumber(dice, 6);
   }
 
   public int yatzy() {
@@ -64,22 +64,6 @@ public class Yatzy {
         : 0;
   }
 
-  public int four_of_a_kind() {
-    int[] tallies;
-    tallies = new int[6];
-    tallies[dice[0] - 1]++;
-    tallies[dice[1] - 1]++;
-    tallies[dice[2] - 1]++;
-    tallies[dice[3] - 1]++;
-    tallies[dice[4] - 1]++;
-    for (int i = 0; i < 6; i++) {
-      if (tallies[i] >= 4) {
-        return (i + 1) * 4;
-      }
-    }
-    return 0;
-  }
-
   public int three_of_a_kind() {
     int[] t;
     t = new int[6];
@@ -91,6 +75,22 @@ public class Yatzy {
     for (int i = 0; i < 6; i++) {
       if (t[i] >= 3) {
         return (i + 1) * 3;
+      }
+    }
+    return 0;
+  }
+
+  public int four_of_a_kind() {
+    int[] tallies;
+    tallies = new int[6];
+    tallies[dice[0] - 1]++;
+    tallies[dice[1] - 1]++;
+    tallies[dice[2] - 1]++;
+    tallies[dice[3] - 1]++;
+    tallies[dice[4] - 1]++;
+    for (int i = 0; i < 6; i++) {
+      if (tallies[i] >= 4) {
+        return (i + 1) * 4;
       }
     }
     return 0;
@@ -172,12 +172,12 @@ public class Yatzy {
     return IntStream.of(dice).allMatch(i -> i == dice[0]);
   }
 
-  private static int countDieThatReadNumber(int[] dice, int number) {
+  private static int countDiceThatReadNumber(int[] dice, int number) {
     return (int) IntStream.of(dice).filter(d -> d == number).count();
   }
 
   private static boolean hasMultipleOccurrence(int[] dice, int value) {
-    return countDieThatReadNumber(dice, value) > 1;
+    return countDiceThatReadNumber(dice, value) > 1;
   }
 
   private static OptionalInt highestMatchingDice(int[] dice) {

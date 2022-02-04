@@ -8,14 +8,14 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("The player chooses to place dice on [yatzi]")
-class YatziTest {
+class YatziTest extends AbstractRuleTest {
 
   @Test
   @DisplayName(
       "The player scores 0 when he chooses to place dice on [yatzi] and at least one dice has a different number")
   public void
       should_score_0_When_dice_placed_on_yatzi_and_at_least_one_dice_has_a_different_number() {
-    assertEquals(0, new Yatzy(6, 6, 6, 6, 3).yatzy());
+    placeDiceOnYatziRoll(0, 6, 6, 6, 6, 3);
   }
 
   @ParameterizedTest
@@ -23,6 +23,14 @@ class YatziTest {
   @DisplayName(
       "The player scores 50 when he chooses to place dice on [yatzi] and all dice have same number")
   public void should_score_50_When_dice_placed_on_yatzi_and_all_dice_have_same_numbers(int dice) {
-    assertEquals(50, new Yatzy(dice, dice, dice, dice, dice).yatzy());
+    placeDiceOnYatziRoll(50, dice, dice, dice, dice, dice);
+  }
+
+  private void placeDiceOnYatziRoll(
+      int expectedScore, int dice1, int dice2, int dice3, int dice4, int dice5) {
+    assertEquals(
+        expectedScore,
+        new Yatzy(dice1, dice2, dice3, dice4, dice5).yatzy(),
+        assertionMessage("yatzi", expectedScore, dice1, dice2, dice3, dice4, dice5));
   }
 }
